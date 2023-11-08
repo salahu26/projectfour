@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+</head>
+<body style="background-repeat: no-repeat;background-image:
+      url({% static 'background_image1.jpeg' %});background-size: cover;">
+
+<h1>registration form</h1>
+<form action="registration" method="post">
+    {% csrf_token %}
+   <p> username</p>
+    <input style="padding:10px; max-width: 400px; width: 75%;textalign:center;" type="text" name="username" placeholder="enter username"><br><br>
+     <p> first name</p>
+    <input style="padding:10px; width: 75%;max-width: 400px;"  type="text" name="firstname" placeholder="enter firstname"><br><br>
+     <p> last name</p>
+    <input style="padding:10px; width: 75%;max-width: 400px;"  type="text" name="lastname" placeholder="enter lastname"><br><br>
+    <p>email id</p>
+    <input style="padding:10px; width: 75%;max-width: 400px;"  type="email" name="email" placeholder="enter email id"><br><br>
+    <p>password</p>
+    <input style="padding:10px; width: 75%;max-width: 400px;"  type="password" name="password" placeholder="enter password"><br><br>
+    <p>conform password</p>
+    <input style="padding:10px; width: 75%;max-width: 400px;"  type="password" name="password1" placeholder="conform password"><br><br>
+    <input type="submit"><br>
+
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>
